@@ -36,9 +36,13 @@ docker logs ``container-name``
 
 docker ps
 
-## Start application containers with docker-compose.yml
+## Create application containers with docker-compose.yml
 
 docker compose up
+
+## Start application containers with docker-compose.yml
+
+docker compose start
 
 [running on background without logs] docker compose up -d
 

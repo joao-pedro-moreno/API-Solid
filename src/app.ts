@@ -1,5 +1,8 @@
 import fastify from 'fastify'
+import { appRoutes } from './http/routes'
+
+// MVC => Model, View & Controller
 
 export const app = fastify()
 
-// ORM => Object Relational Mapper
+app.register(appRoutes)
