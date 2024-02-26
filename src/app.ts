@@ -1,7 +1,7 @@
 import fastify from 'fastify'
 import { appRoutes } from './http/routes'
 
-// MVC => Model, View & Controller
+// SOLID => Uncle Bob (Clean Code)
 
 export const app = fastify()
 
