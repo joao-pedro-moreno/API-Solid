@@ -5,11 +5,5 @@
   "rules": {
     "camelcase": "off",
     "no-useless-constructor": "off"
-  },
-  "prettier/prettier": [
-    "error",
-    {
-      "endOfLine": "auto"
-    }
-  ]
+  }
 }

@@ -15,22 +15,24 @@ describe('Get User Profile Use Case', () => {
 
   it('should be able to get user profile', async () => {
     const createdUser = await usersRepository.create({
-      name: "John Doe",
+      name: 'John Doe',
       email: 'johndoe@example.com',
-      password_hash: await hash("123456", 6),
+      password_hash: await hash('123456', 6),
     })
 
     const { user } = await sut.exec({
-      userId: createdUser.id
+      userId: createdUser.id,
     })
 
     expect(user.id).toEqual(expect.any(String))
-    expect(user.name).toEqual("John Doe")
+    expect(user.name).toEqual('John Doe')
   })
 
   it('should not be able to get user profile with wrong id', async () => {
-    await expect(() => sut.exec({
-      userId: "non-existing-id"
-    })).rejects.toBeInstanceOf(ResourceNotFoudError)
+    await expect(() =>
+      sut.exec({
+        userId: 'non-existing-id',
+      }),
+    ).rejects.toBeInstanceOf(ResourceNotFoudError)
   })
 })

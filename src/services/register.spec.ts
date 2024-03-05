@@ -30,7 +30,10 @@ describe('Register Use Case', () => {
       password: '123456',
     })
 
-    const isPasswordCorrectlyHashed = await compare('123456', user.password_hash)
+    const isPasswordCorrectlyHashed = await compare(
+      '123456',
+      user.password_hash,
+    )
 
     expect(isPasswordCorrectlyHashed).toBe(true)
   })
@@ -44,10 +47,12 @@ describe('Register Use Case', () => {
       password: '123456',
     })
 
-    await expect(() => sut.exec({
-      name: 'John Doe',
-      email,
-      password: '123456',
-    })).rejects.toBeInstanceOf(UserAlrealdyExistsError)
+    await expect(() =>
+      sut.exec({
+        name: 'John Doe',
+        email,
+        password: '123456',
+      }),
+    ).rejects.toBeInstanceOf(UserAlrealdyExistsError)
   })
 })

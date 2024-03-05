@@ -14,9 +14,13 @@ interface RegisterServiceResponse {
 }
 
 export class RegisterService {
-  constructor(private usersRepository: UsersRepository) { }
+  constructor(private usersRepository: UsersRepository) {}
 
-  async exec({ name, email, password }: RegisterServiceRequest): Promise<RegisterServiceResponse> {
+  async exec({
+    name,
+    email,
+    password,
+  }: RegisterServiceRequest): Promise<RegisterServiceResponse> {
     const password_hash = await hash(password, 6)
 
     const userWithSameEmail = await this.usersRepository.findByEmail(email)

@@ -1,7 +1,7 @@
-import { UsersRepository } from '@/repositories/users-repository';
-import { InvalidCredentialsError } from './errors/invalid-credentials-error';
-import { compare } from 'bcryptjs';
-import { User } from '@prisma/client';
+import { UsersRepository } from '@/repositories/users-repository'
+import { InvalidCredentialsError } from './errors/invalid-credentials-error'
+import { compare } from 'bcryptjs'
+import { User } from '@prisma/client'
 
 interface AuthenticateServiceRequest {
   email: string
@@ -13,11 +13,12 @@ interface AuthenticateServiceResponse {
 }
 
 export class AuthenticateService {
-  constructor(
-    private usersRepository: UsersRepository,
-  ) { }
+  constructor(private usersRepository: UsersRepository) {}
 
-  async exec({ email, password }: AuthenticateServiceRequest): Promise<AuthenticateServiceResponse> {
+  async exec({
+    email,
+    password,
+  }: AuthenticateServiceRequest): Promise<AuthenticateServiceResponse> {
     const user = await this.usersRepository.findByEmail(email)
 
     if (!user) {
@@ -31,7 +32,7 @@ export class AuthenticateService {
     }
 
     return {
-      user
+      user,
     }
   }
 }
