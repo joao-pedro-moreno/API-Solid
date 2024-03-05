@@ -10,6 +10,8 @@ import { env } from './env'
 // I =>
 // D => Dependency Inversion Principle
 
+// TDD => Teste Driven Development
+
 export const app = fastify()
 
 app.register(appRoutes)
