@@ -8,7 +8,7 @@ export async function metrics(req: FastifyRequest, res: FastifyReply) {
     userId: req.user.sub,
   })
 
-  return res.status(201).send({
+  return res.status(200).send({
     checkInsCount,
   })
 }
