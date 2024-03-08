@@ -16,6 +16,8 @@ import { checkInsRoutes } from './http/controllers/check-ins/routes'
 
 // TDD => Teste Driven Development
 
+// RBAC => Role Based Authorization Control
+
 export const app = fastify()
 
 app.register(fastifyJwt, {
