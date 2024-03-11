@@ -17,7 +17,9 @@ export async function authenticate(req: FastifyRequest, res: FastifyReply) {
     const { user } = await authenticateService.exec({ email, password })
 
     const token = await res.jwtSign(
-      {},
+      {
+        role: user.role,
+      },
       {
         sign: {
           sub: user.id,
@@ -26,7 +28,9 @@ export async function authenticate(req: FastifyRequest, res: FastifyReply) {
     )
 
     const refreshToken = await res.jwtSign(
-      {},
+      {
+        role: user.role,
+      },
       {
         sign: {
           sub: user.id,
