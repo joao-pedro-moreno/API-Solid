@@ -18,6 +18,8 @@ import { checkInsRoutes } from './http/controllers/check-ins/routes'
 
 // RBAC => Role Based Authorization Control
 
+// CI => Continuous Integration
+
 export const app = fastify()
 
 app.register(fastifyJwt, {
